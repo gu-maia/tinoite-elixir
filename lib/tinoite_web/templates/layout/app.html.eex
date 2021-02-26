@@ -10,29 +10,29 @@
   </head>
   <body>
     <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <%= if Pow.Plug.current_user(@conn) do %>
-              <li>
-                <%= @current_user.email %>
-              </li>
-              <li>
-                <%= link "Sign out", to: Routes.pow_session_path(@conn, :delete), method: :delete %>
-              </li>
-            <% else %>
-              <li>
-                <%= link "Register", to: Routes.pow_registration_path(@conn, :new) %>
-              </li>
-              <li>
-                <%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %> 
-              </li>
-            <% end %>
-          </ul>
-        </nav>
-      </section>
+      <div class="relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+              <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                About
+              </a>
+              <a href="https://github.com/itsmaia/tinoite-elixir", target="_blank" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                Code
+              </a>
+            <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              <%= if Pow.Plug.current_user(@conn) do %>
+                  <%= @current_user.email %>
+                  <%= link "Sign out", to: Routes.pow_session_path(@conn, :delete), class: 'ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700', method: :delete %>
+                <% else %>
+                  <%= link "Register", to: Routes.pow_registration_path(@conn, :new), class: 'ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700' %>
+                  <%= link "Sign in", to: Routes.pow_session_path(@conn, :new), class: 'ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
-    <main role="main" class="container">
+    <main role="main" class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>

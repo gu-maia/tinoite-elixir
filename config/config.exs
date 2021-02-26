@@ -25,7 +25,8 @@ config :logger, :console,
 
 config :tinoite, :pow,
   user: Tinoite.Users.User,
-  repo: Tinoite.Repo
+  repo: Tinoite.Repo,
+  web_module: TinoiteWeb
 
 
 # Use Jason for JSON parsing in Phoenix
