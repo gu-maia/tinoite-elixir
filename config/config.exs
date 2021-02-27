@@ -28,7 +28,6 @@ config :tinoite, :pow,
   repo: Tinoite.Repo,
   web_module: TinoiteWeb
 
-
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 

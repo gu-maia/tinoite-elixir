@@ -10,6 +10,11 @@ defmodule TinoiteWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -24,8 +29,13 @@ defmodule TinoiteWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
+    get "/about", AboutController, :index
+  end
+
+  scope "/", TinoiteWeb do
+    pipe_through [:browser, :protected]
+
+    get "/profile", UserController, :show
   end
 
   # Other scopes may use custom stacks.
