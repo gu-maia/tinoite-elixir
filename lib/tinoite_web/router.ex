@@ -10,7 +10,8 @@ defmodule TinoiteWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :protected do
+  pipeline :authenticate_user do
+    plug :browser
     plug Pow.Plug.RequireAuthenticated,
       error_handler: Pow.Phoenix.PlugErrorHandler
   end
@@ -33,7 +34,7 @@ defmodule TinoiteWeb.Router do
   end
 
   scope "/", TinoiteWeb do
-    pipe_through [:browser, :protected]
+    pipe_through :authenticate_user
 
     get "/profile", UserController, :show
   end
