@@ -19,7 +19,7 @@ What we mean is:
 * Phoenix
   * A very 'rails-like' framework, but powered with [Elixir](https://elixir-lang.org/). Simple, ultrafast, without all that [rails magic](https://medium.com/swlh/the-ups-and-downs-of-rails-magic-5a88c7f68064)
 * Elixir
-     * Why? It was built to create applications just like that, the functional paradigm is less prone to error and the telecom roots of the [Erland VM](https://www.erlang.org/) allows us to create lightning fast and cheap chat applications (Wich is kinda our core)
+     * Why? It was built to create applications just like that, the functional paradigm is less prone to error and the telecom roots of the [Erlang VM](https://www.erlang.org/) allows us to create lightning fast and cheap chat applications (Wich is kinda our core)
 * TailwindCSS
 * Alpine.js
 * LiveView
